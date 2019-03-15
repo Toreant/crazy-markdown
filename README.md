@@ -1,38 +1,20 @@
-# header1  
-## header2  
-### header3  
-#### header4  
-##### header5  
-###### header6  
+## This is a single markdown parser  
 
+### Develop  
 
 ```
-var this = 'code'
-/**code**/
+npm i
+npm run test
 ```  
 
-``
-inline
-``
+### Export Function  
 
->quote
->quote2
+```
+const { parse, generateHTML } = require('./src/index');
 
-> quote3
-
-**bold**
-*italic*  
-
-- list1-er
-- list2
-- list3
-- list4
-
-1. numberlist
-2. numberlist
-
-1. numberList
-
-[link](http://www.baidu.com)
-
- ![img](https://upload-images.jianshu.io/upload_images/703764-605e3cc2ecb664f6.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp)
+let parsedHTML = parse('# head1'); 
+generateHTML('# header', {
+    styleSrc: '', // the style file path
+    targetSrc: '' // the target output file path, if not defined, the targetSrc is ./output/index.html
+});
+```

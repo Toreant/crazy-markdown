@@ -7,16 +7,21 @@ function parse(txt) {
     return html;
 }
 
+/**
+ * generate .html file
+ * @param {*} txt source markdown text
+ * @param {*} config {style?: path, targetSrc?: path}
+ */
 function generateHTML(txt, config = {}) {
 
     let _config = Object.assign({}, {
-        style: path.resolve(__dirname, './content/style.css'),
+        styleSrc: path.resolve(__dirname, './content/style.css'),
         targetSrc: path.resolve(__dirname, '../output/index.html')
     }, config);
 
     let content = parse(txt);
     let html = fs.readFileSync(path.resolve(__dirname, './content/index.html'), 'utf-8');
-    let stylePath = _config.style;
+    let stylePath = _config.styleSrc;
     let style = fs.readFileSync(stylePath, 'utf-8');
     html = html.replace('<style></style>', `<style>\n${style}</style>`);
     html = html.replace('<body></body>', `<body>${content}</body>`);

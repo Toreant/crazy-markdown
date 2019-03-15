@@ -1,0 +1,50 @@
+.code {
+    background: #F6F6F6;
+    color: #1A1A1A;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.inline-code {
+    color: #1A1A1A;
+    display: inline-block;
+    background: #F6F6F6;
+    padding: 4px;
+}
+
+.blockquote {
+    margin: 0;
+    padding: 20px 10px;
+    border-left: 6px solid #b4b4b4;
+    background: #f7f7f7;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.blockquote p {
+    padding: 0;
+    margin: 0;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.block-img {
+    display: block;
+    max-width: 100%;
+}
+
+ul {
+    padding: 0;
+    margin-bottom: 0;
+}
+
+ol {
+    padding-left: 20px;
+    margin-bottom: 0;
+}

@@ -120,17 +120,18 @@ class Render {
 
     renderNumberList(txt) {
         let r;
-        while((r = regExp.numberList.exec(txt)) !== null) {
-            let lines = r[0].split('\n');
-            let _html = [];
-            for (let i = 1; i <= lines.length; i++) {
-                let _numberListItem = regExp.numberListItem.exec(lines[i - 1]);
-                if (_numberListItem) {
-                    _html.push(`<li>${_numberListItem[1].trim()}</li>`);
-                }
-            }
-            txt = txt.replace(r[0], `<ol class="ol">${_html.join('')}</ol>`);
-        }
+        console.log(/((^|\n)\d\.\s([^\n]*)$){1,}/gm.exec(txt));
+        // while((r = regExp.numberList.exec(txt)) !== null) {
+        //     let lines = r[0].split('\n');
+        //     let _html = [];
+        //     for (let i = 1; i <= lines.length; i++) {
+        //         let _numberListItem = regExp.numberListItem.exec(lines[i - 1]);
+        //         if (_numberListItem) {
+        //             _html.push(`<li>${_numberListItem[1].trim()}</li>`);
+        //         }
+        //     }
+        //     txt = txt.replace(r[0], `<ol class="ol">${_html.join('')}</ol>`);
+        // }
         return txt;
     }
 }

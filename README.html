@@ -211,50 +211,25 @@ code.language-yaml {
     </head>
     <body for="html-export">
       <div class="mume markdown-preview   ">
-      <h1 class="mume-header" id="header1">header1</h1>
+      <h2 class="mume-header" id="this-is-a-single-markdown-parser">This is a single markdown parser</h2>
 
-<h2 class="mume-header" id="header2">header2</h2>
+<h3 class="mume-header" id="develop">Develop</h3>
 
-<h3 class="mume-header" id="header3">header3</h3>
+<pre data-role="codeBlock" data-info="" class="language-"><code>npm i
+npm run test
+</code></pre><h3 class="mume-header" id="export-function">Export Function</h3>
 
-<h4 class="mume-header" id="header4">header4</h4>
+<pre data-role="codeBlock" data-info="" class="language-"><code>const { parse, generateHTML } = require(&apos;./src/index&apos;);
 
-<h5 class="mume-header" id="header5">header5</h5>
+let parsedHTML = parse(&apos;# head1&apos;); 
+generateHTML(&apos;# header&apos;, {
+    styleSrc: &apos;&apos;, // the style file path
+    targetSrc: &apos;&apos; // the target output file path, if not defined, the targetSrc is ./output/index.html
+});
 
-<h6 class="mume-header" id="header6">header6</h6>
-
-<pre data-role="codeBlock" data-info="" class="language-"><code>var this = &apos;code&apos;
-/**code**/
-</code></pre><p><code>inline</code></p>
-<blockquote>
-<p>quote<br>
-quote2</p>
-</blockquote>
-<blockquote>
-<p>quote3</p>
-</blockquote>
-<p><strong>bold</strong><br>
-<em>italic</em></p>
-<ul>
-<li>list1-er</li>
-<li>list2</li>
-<li>list3</li>
-<li>list4</li>
-</ul>
-<ol>
-<li>
-<p>numberlist</p>
-</li>
-<li>
-<p>numberlist</p>
-</li>
-<li>
-<p>numberList</p>
-</li>
-</ol>
-<p><a href="http://www.baidu.com">link</a></p>
-<p><img src="http://yure" alt="img"></p>
-
+1. yuhuajie
+2. yuhuajie
+</code></pre>
       </div>
       
       

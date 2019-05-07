@@ -14,14 +14,16 @@ describe('reg tester', function () {
             let r = headerlineExec.exec('# header1  ');
             expect(r).to.not.equal(null);
         });
-        it('should return null when "#" has no space after', function () {
-            let r = headerlineExec.exec('#header1  ');
-            expect(r).to.equal(null);
-        });
-        it('should return null when the end has no two space', function () {
-            let r = headerlineExec.exec('# header1');
-            expect(r).to.equal(null);
-        });
+
+        // no need
+        // it('should return null when "#" has no space after', function () {
+        //     let r = headerlineExec.exec('#header1  ');
+        //     expect(r).to.equal(null);
+        // });
+        // it('should return null when the end has no two space', function () {
+        //     let r = headerlineExec.exec('# header1');
+        //     expect(r).to.equal(null);
+        // });
 
         for (let i = 2; i <= 6; i++) {
             it(`should return not null when the # has ${i} items`, function () {
@@ -40,7 +42,7 @@ describe('reg tester', function () {
             for (let i = 1; i <= 6; i++) {
                 let r = headerlineExec.exec(`${_gen(i)} header${i}  `);
                 expect(r).to.not.equal(null);
-                expect(r[2]).to.equal(`header${i}`);
+                expect(r[2].trim()).to.equal(`header${i}`);
             }
         });
         
@@ -148,6 +150,28 @@ describe('reg tester', function () {
         it('should return null', function () {
             let r = imgReg.exec('![]img](http://yure)');
             expect(r).to.equal(null);
+        });
+    });
+
+    describe.only('#line reg', function () {
+        it('should return not null', function () {
+            let content = '\ncode \r\n end';
+
+            let r = regExpParser.line.exec(content);
+
+            expect(r).to.not.equal(null);
+        });
+        it('should return not null that read the MD', function(done) {
+            const fs = require('fs');
+            const path = require('path');
+
+            fs.readFile(path.resolve(__dirname, '../README.md'), 'utf-8', function (err, data) {
+                data = data.replace(/\r\n?/g, "\n");
+                let r = regExpParser.line.exec(data);
+                console.log(r);
+                expect(r).to.not.equal(null);
+                done();
+            })
         });
     });
 });
